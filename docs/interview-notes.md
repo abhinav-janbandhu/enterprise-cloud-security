@@ -70,10 +70,105 @@ Yes. AWS recommends enabling Multi-Factor Authentication (MFA) for privileged IA
 
 ---
 
+## Lab 32 – AWS Networking Fundamentals
+
+### Q1. What is an Amazon VPC?
+
+**Answer**
+
+An Amazon Virtual Private Cloud (VPC) is a logically isolated virtual network within AWS where cloud resources are deployed. It allows organizations to define their own IP address ranges, create subnets, configure routing, and apply network security controls while remaining isolated from other AWS customers.
+
+---
+
+### Q2. Why are subnets used within a VPC?
+
+**Answer**
+
+Subnets divide a VPC into smaller network segments. They allow resources with different security requirements to be separated, improve network organization, and enable controlled routing between application tiers such as web, application, and database servers.
+
+---
+
+### Q3. What is the difference between a public subnet and a private subnet?
+
+**Answer**
+
+A public subnet has a route to an Internet Gateway, allowing resources such as web servers to receive internet traffic. A private subnet has no direct internet route and is typically used for databases, internal applications, and sensitive workloads that should not be directly accessible from the internet.
+
+---
+
+### Q4. What is an Internet Gateway (IGW)?
+
+**Answer**
+
+An Internet Gateway is a highly available AWS-managed component that enables communication between resources in a VPC and the public internet. A subnet becomes public only when its route table includes a route to the Internet Gateway.
+
+---
+
+### Q5. What is a Route Table?
+
+**Answer**
+
+A Route Table contains rules that determine where network traffic is directed. Each subnet is associated with a route table that specifies whether traffic should remain within the VPC or be forwarded to destinations such as an Internet Gateway, NAT Gateway, or Virtual Private Gateway.
+
+---
+
+### Q6. What is the purpose of a Security Group?
+
+**Answer**
+
+A Security Group acts as a virtual firewall attached to AWS resources such as EC2 instances. It controls inbound and outbound traffic using allow rules and is stateful, meaning return traffic for permitted connections is automatically allowed.
+
+---
+
+### Q7. What is the difference between a Security Group and a Network ACL?
+
+**Answer**
+
+Security Groups operate at the instance level, are stateful, and support only allow rules. Network ACLs operate at the subnet level, are stateless, and support both allow and deny rules, providing an additional layer of network security.
+
+---
+
+### Q8. Why is CIDR notation important in AWS networking?
+
+**Answer**
+
+CIDR notation defines IP address ranges used by VPCs and subnets. Proper CIDR planning prevents overlapping networks, supports future expansion, and enables effective routing between AWS environments and on-premises networks.
+
+---
+
+### Q9. Why should databases typically be placed in private subnets?
+
+**Answer**
+
+Databases generally do not require direct internet access. Placing them in private subnets reduces the attack surface, limits exposure to external threats, and supports defense-in-depth by requiring application servers to communicate with the database internally.
+
+---
+
+### Q10. How does network segmentation improve cloud security?
+
+**Answer**
+
+Network segmentation isolates workloads based on their function and security requirements. By separating public-facing services from internal applications and databases, organizations reduce lateral movement opportunities for attackers and enforce least-privilege network access.
+
+---
+
 ## Key Takeaways
+
+### Lab 31 – AWS Security Foundation
 
 - Secure privileged accounts before deploying infrastructure.
 - Separate emergency access from operational administration.
 - Establish governance early through IAM and AWS Budgets.
 - Validate programmatic access before implementing automation.
 - Build cloud environments on a security-first foundation.
+
+---
+
+### Lab 32 – AWS Networking Fundamentals
+
+- Design VPCs with future scalability in mind.
+- Separate workloads using public and private subnets.
+- Control traffic using route tables and Internet Gateways.
+- Apply defense-in-depth using Security Groups and Network ACLs.
+- Plan CIDR ranges carefully to avoid future networking conflicts.
+- Network segmentation is a foundational cloud security control.
